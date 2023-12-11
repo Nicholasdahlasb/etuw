@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Strømmetjenester</title>
+</head>
+<body>
+
+    <div class="buttons-container">
+        {% for service, image in services.items() %}
+            <a href="/{{ service }}" class="{{ service }}-button">
+                <div class="button" onmouseover="enlargeButton({{ loop.index }})" onmouseout="shrinkButton({{ loop.index }})">
+                    <img src="{{ url_for('static', filename=image) }}" alt="{{ service.capitalize() }} Example Image">
+                </div>
+            </a>
+            {% if loop.index % 3 == 0 %}
+                <div class="clearfix"></div>
+            {% endif %}
+        {% endfor %}
+           <a href="https://open.spotify.com" class="spotify-button">
+            <div class="button" onmouseover="enlargeButton(7)" onmouseout="shrinkButton(7)">
+                <img src="{{ url_for('static', filename='spotify.png') }}" alt="Spotify Example Image">
+            </div>
+        </a>
+           <a href="https://fmoviesz.to" class="fmoviez-button">
+            <div class="button" onmouseover="enlargeButton(8)" onmouseout="shrinkButton(8)">
+                <img src="{{ url_for('static', filename='fmoviez.png') }}" alt="Fmoviez Example Image">
+            </div>
+        </a>
+            <a href="https://aniwave.link/" class="aniwave-button">
+                <div class="button" onmouseover="enlargeButton(9)" onmouseout="shrinkButton(9)">
+                    <img src="{{ url_for('static', filename='aniwave.png') }}" alt="Aniwave Example Image">
+                </div>
+            </a>
+    <a href="https://mangadex.org/" class="Magnadex-button">
+                <div class="button" onmouseover="enlargeButton(10)" onmouseout="shrinkButton(10)">
+                    <img src="{{ url_for('static', filename='magnadex.png') }}" alt="Magnadex Example Image">
+                </div>
+            </a>
+    <a href="https://www.primevideo.com/offers/nonprimehomepage/ref=dv_web_force_root" class="PrimeVideo-button">
+                <div class="button" onmouseover="enlargeButton(11)" onmouseout="shrinkButton(11)">
+                    <img src="{{ url_for('static', filename='primevideo.png') }}" alt="Prime Video Example Image">
+                </div>
+            </a>
+    <a href="https://steamunlocked.net/" class="Steamunlocked-button">
+                <div class="button" onmouseover="enlargeButton(12)" onmouseout="shrinkButton(12)">
+                    <img src="{{ url_for('static', filename='steamunlocked.png') }}" alt="Steamunlocked Example Image">
+                </div>
+            </a>
+    <a href="https://igg-games.cc/" class="IGG-GAMES-button">
+                <div class="button" onmouseover="enlargeButton(13)" onmouseout="shrinkButton(13)">
+                    <img src="{{ url_for('static', filename='igggames.png') }}" alt="IGG GAMES Example Image">
+                </div>
+            </a>
+
+
+    </div>
+
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
